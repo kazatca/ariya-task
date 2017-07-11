@@ -1,0 +1,16 @@
+{
+  "departments": [
+    {
+      "id": "1",
+      "name": "hr"
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "departmentId": "1"
+    }
+  ]
+}
