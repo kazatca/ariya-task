@@ -1,3 +1,4 @@
+import {List} from 'immutable';
 import {createSelector} from 'reselect';
 
 export const getDepartments = createSelector([
@@ -9,4 +10,15 @@ export const getDepartments = createSelector([
       id
     }))
     .toArray()
+);
+
+export const departmentIsEmpty = createSelector([
+  state => state.get('employees', List()),
+  (_, departmentId) => departmentId
+],
+  (employees, departmentId) => 
+    employees.filter(employee => 
+      employee.get('departmentId') == departmentId
+    )
+    .size == 0
 );

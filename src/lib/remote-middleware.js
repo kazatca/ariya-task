@@ -30,7 +30,7 @@ export default backendUrl =>
     })
     .catch(() => 
       dispatch(setNotify(
-        !method || method != 'GET' ? 
+        !method || method == 'GET' ? 
         'loading error': 
         'unsaved changes'
       ))

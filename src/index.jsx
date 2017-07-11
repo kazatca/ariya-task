@@ -4,24 +4,12 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
 import reducer from './reducer.js';
-import fetch from './lib/fetch-middleware.js';
+import remote from './lib/remote-middleware.js';
 import App from './components/App.jsx';
 
-const fetchMiddleware = fetch('http://localhost:3000');
+const remoteMiddleware = remote('http://localhost:3000');
 
-const log = store => next => action => {
-  if(typeof action == 'function'){
-    console.log('action for thunk');
-  }
-  else{
-    console.log('action', action.type, action);
-  }
-  return next(action);
-};
-
-const store = createStore(reducer, applyMiddleware(log, thunk, fetchMiddleware));
-
-window.store = store;
+const store = createStore(reducer, applyMiddleware(thunk, remoteMiddleware));
 
 render(
   <App store={store}/>, 

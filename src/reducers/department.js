@@ -1,6 +1,6 @@
 import {OrderedMap, Map} from 'immutable';
 
-import {makeReducer} from '../lib/make-reducer.js';
+import {makeReducer} from '../lib/reducer-utils.js';
 
 const reducers = {
   SET_DEPARTMENTS: (_, {departments}) => 

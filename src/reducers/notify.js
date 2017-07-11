@@ -1,9 +1,9 @@
 import {Map} from 'immutable';
 
-import {makeReducer} from '../lib/make-reducer.js';
+import {makeReducer} from '../lib/reducer-utils.js';
 
 const reducers = {
-  SET_NOTIFY: (notify, {text}) =>
+  SET_NOTIFY: (_, {text}) =>
     Map({text, isOpen: true}),
   CLOSE_NOTIFY: notify =>
     notify.set('isOpen', false)

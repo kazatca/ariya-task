@@ -48,7 +48,7 @@ export const setLastName = (id, lastName) => dispatch => {
   dispatch(syncEmployee(id));
 };
 
-export const setDepartment = (id, departmentId) => dispatch => {
+export const setDepartmentId = (id, departmentId) => dispatch => {
   dispatch({
     type: 'SET_EMPLOYEE_DEPARTMENT',
     payload: {
@@ -68,8 +68,7 @@ export const add = () => dispatch =>
       url: '/employees',
       body: {
         firstName: 'New', 
-        lastName: 'Employee', 
-        departmentId: null
+        lastName: 'Employee'
       }
     }
   })

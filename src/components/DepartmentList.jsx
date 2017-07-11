@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Department from './Department.jsx';
+import {fetchAll as fetchEmployees, add} from '../actions/employee.js';
 import {
-  fetchAll as fetchDepartments, 
+  fetchAll as fetchDepartments,
   add as addDepartment
 } from '../actions/department.js';
 import {getDepartments} from '../selectors/departments.js';
@@ -26,7 +27,9 @@ export class DepartmentList extends Component{
     return (
       <div className="department-list">
         {this.props.departments.map(department => <Department {...department} key={department.id} />)}
-        <button className="departmant-add" onClick={this.props.addDepartment} >Add department</button>
+        <button className="btn btn-default" onClick={this.props.addDepartment} >
+          Add department
+        </button>
       </div>);
   }
 }
@@ -36,7 +39,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch: () => dispatch(fetchDepartments()),
+  fetch: () => {
+    dispatch(fetchEmployees());
+    dispatch(fetchDepartments());
+  },
   addDepartment: () => dispatch(addDepartment())
 });
 
