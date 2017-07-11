@@ -1,0 +1,4 @@
+- npm i[nstall]
+- cp db.example.json db.json
+- npm start
+- go to http://localhost:8080
